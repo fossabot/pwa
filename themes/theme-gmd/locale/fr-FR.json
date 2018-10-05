@@ -5,7 +5,7 @@
     "cancel": "Annuler",
     "submit": "Envoyer",
     "undo": "Défaire"
-  },
+   },
   "titles": {
     "categories": "Catégories",
     "filter": "Filterer",
@@ -35,11 +35,9 @@
       "price_desc": "Prix Descendant",
       "price_asc": "Prix Ascendant"
     },
-    "apply": "Appliquer",
+    "apply": "Terminé",
     "more": "Plus",
-    "clear": "Effacer",
-    "clear_all": "Effacer tout",
-    "view_all": "Voir tout"
+    "reset": "Effacer tout"
   },
   "price": {
     "from": "De {price}",
@@ -76,7 +74,7 @@
       "body": "Votre recherche \"{searchPhrase}\" n'a aucun résultat."
     }
   },
-  "shipping": {
+ "shipping": {
     "unknown": "avec frais de livraison",
     "free": "Livraison gratuite",
     "free_short": "Fratuit",
@@ -118,7 +116,7 @@
     "logout_message": "Vous avez été déconnecté",
     "error": "Votre nom d'utilisateur et votre mot de passe ne correspondent à aucun compte"
   },
-  "navigation": {
+ "navigation": {
     "login_register": "Se connecter / S'inscrire",
     "your_account": "Ton compte",
     "home": "Accueil",
@@ -131,15 +129,11 @@
     "payment": "Méthodes de paiement",
     "terms": "Termes",
     "privacy": "Politique de confidentialité",
-    "welcome_message": "Bienvenue {name}",
     "return_policy": "Politique de retour",
+    "welcome_message": "Bienvenue {name}",
     "logout": "Se déconnecter",
     "store_information": "Informations sur le magasin",
-    "more_menu": "Plus",
-    "menuSubHeader": {
-      "more": "Plus",
-      "about": "À propos de nous"
-    }
+    "more_menu": "Plus"
   },
   "reviews": {
     "rating": "Evaluation",
