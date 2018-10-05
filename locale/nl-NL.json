@@ -34,11 +34,9 @@
       "price_desc": "Prijs: Hoog naar Laag",
       "price_asc": "Prijs: Laag naar Hoog"
     },
-    "apply": "Toepassen",
+    "apply": "Klaar",
     "more": "meer",
-    "clear": "Wissen",
-    "clear_all": "Wis alles",
-    "view_all": "Bekijk alles"
+    "reset": "Wis alles"
   },
   "price": {
     "from": "Vanaf {price}",
@@ -116,7 +114,6 @@
   },
   "navigation": {
     "login_register": "Log in / Registreer",
-    "your_account": "Uw Account",
     "home": "Home",
     "categories": "Categorieën",
     "favorites": "Favorieten",
@@ -127,13 +124,9 @@
     "payment": "Betalingsmethoden",
     "terms": "Voorwaarden",
     "privacy": "Privacybeleid",
-    "welcome_message": "Welkom {name}",
     "return_policy": "Retourbeleid",
-    "logout": "Log uit",
-    "menuSubHeader": {
-      "more": "Meer",
-      "about": "Over ons"
-    }
+    "welcome_message": "Welkom {name}",
+    "logout": "Log uit"
   },
   "reviews": {
     "rating": "Rating",

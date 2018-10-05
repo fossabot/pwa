@@ -34,11 +34,9 @@
       "price_desc": "Höchster Preis zuerst",
       "price_asc": "Niedrigster Preis zuerst"
     },
-    "apply": "Anwenden",
+    "apply": "Fertig",
     "more": "mehr",
-    "clear": "Zurücksetzen",
-    "clear_all": "Alle zurücksetzen",
-    "view_all": "mehr"
+    "reset": "Zurücksetzen"
   },
   "price": {
     "from": "Ab {price}",
@@ -116,7 +114,6 @@
   },
   "navigation": {
     "login_register": "Anmelden",
-    "your_account": "Mein Konto",
     "home": "Startseite",
     "categories": "Kategorien",
     "favorites": "Merkliste",
@@ -127,13 +124,9 @@
     "payment": "Zahlungsarten",
     "terms": "AGB",
     "privacy": "Datenschutz",
-    "welcome_message": "Hallo {name}",
     "return_policy": "Widerrufsbelehrung",
-    "logout": "Abmelden",
-    "menuSubHeader": {
-      "more": "Mehr",
-      "about": "Über uns"
-    }
+    "welcome_message": "Hallo {name}",
+    "logout": "Abmelden"
   },
   "reviews": {
     "rating": "Bewertung",

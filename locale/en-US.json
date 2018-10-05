@@ -34,11 +34,9 @@
       "price_desc": "Price: High to Low",
       "price_asc": "Price: Low to High"
     },
-    "apply": "Apply",
+    "apply": "Done",
     "more": "more",
-    "clear": "Clear",
-    "clear_all": "Clear all",
-    "view_all": "View all"
+    "reset": "Reset"
   },
   "price": {
     "from": "From {price}",
@@ -116,7 +114,6 @@
   },
   "navigation": {
     "login_register": "Login / Register",
-    "your_account": "Your Account",
     "home": "Home",
     "categories": "Categories",
     "favorites": "Favorites",
@@ -127,13 +124,9 @@
     "payment": "Payment methods",
     "terms": "Terms",
     "privacy": "Privacy policy",
-    "welcome_message": "Welcome {name}",
     "return_policy": "Return policy",
-    "logout": "Sign out",
-    "menuSubHeader": {
-      "more": "More",
-      "about": "About us"
-    }
+    "welcome_message": "Welcome, {name}",
+    "logout": "Sign out"
   },
   "reviews": {
     "rating": "Rating",
