@@ -45,6 +45,7 @@ export default class I18nProvider extends Component {
     const { locales, lang } = this.props;
 
     return {
+      lang,
       __: getTranslator(locales, lang),
       _p: getPriceFormatter(lang),
       _d: getDateFormatter(lang),

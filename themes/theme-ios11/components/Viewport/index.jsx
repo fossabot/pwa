@@ -7,15 +7,26 @@ import styles from './style';
 /**
  * The viewport component.
  * @param {Object} props The component props.
+ * @param {Object} context Context.
  * @returns {JSX}
  */
-const Viewport = props => (
-  <main className={styles} role="main" itemScope itemProp="http://schema.org/MobileApplication">
+const Viewport = (props, context) => (
+  <main
+    className={styles}
+    role="main"
+    itemScope
+    itemProp="http://schema.org/MobileApplication"
+    lang={context.i18n().lang}
+  >
     <Navigator />
     {props.children}
     <TabBar />
   </main>
 );
+
+Viewport.contextTypes = {
+  i18n: PropTypes.func,
+};
 
 Viewport.propTypes = {
   children: PropTypes.node.isRequired,
