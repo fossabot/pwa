@@ -9,6 +9,7 @@ import { AVAILABILITY_STATE_OK } from '@shopgate/pwa-common-commerce/product/con
  */
 const mapStateToProps = (state, props) => {
   const stock = getCurrentProductStock(state, props);
+  console.warn(stock);
   if (!stock) {
     return {
       availability: null,
@@ -23,17 +24,4 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-/**
- * @param {Object} next The next component props.
- * @param {Object} prev The previous component props.
- * @return {boolean}
- */
-const areStatePropsEqual = (next, prev) => {
-  if (!prev.availability && next.availability) {
-    return false;
-  }
-
-  return true;
-};
-
-export default connect(mapStateToProps, null, null, { areStatePropsEqual });
+export default connect(mapStateToProps);

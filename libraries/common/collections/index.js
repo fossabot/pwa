@@ -1,4 +1,5 @@
 export { default as authRoutes } from './AuthRoutes';
+export { default as configurables } from './Configurables';
 export { default as persistedReducers } from './PersistedReducers';
 export { default as redirects } from './Redirects';
 export { default as embeddedMedia } from './EmbeddedMedia';

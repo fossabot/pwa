@@ -2,6 +2,7 @@ import { hot } from 'react-hot-loader';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import { configurables } from '@shopgate/pwa-common/collections';
 import appConfig from '@shopgate/pwa-common/helpers/config';
 import { isDev } from '@shopgate/pwa-common/helpers/environment';
 import { history } from '@shopgate/pwa-common/helpers/router';
@@ -37,7 +38,21 @@ import Dialog from '@shopgate/pwa-ui-shared/Dialog';
 import locale from '../locale';
 import * as routes from './routes';
 
+import ProductImageSlider from 'Pages/Product/components/ProductImageSlider';
+import ProductInfo from 'Pages/Product/components/ProductInfo';
+import ProductTitle from 'Pages/Product/components/ProductTitle';
+import ProductManufacturer from 'Pages/Product/components/ProductManufacturer';
+import ProductShipping from 'Pages/Product/components/ProductShipping';
+
 const devFontsUrl = 'https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700,900';
+
+configurables.set('ProductImageSlider', ProductImageSlider);
+configurables.set('ProductInfo', ProductInfo);
+configurables.set('ProductTitle', ProductTitle);
+configurables.set('ProductManufacturer', ProductManufacturer);
+configurables.set('ProductShipping', ProductShipping);
+configurables.set('ProductPrice', () => <div>ProductPrice</div>);
+configurables.set('ProductMSRP', () => <div>ProductMSRP</div>);
 
 /**
  * The theme's main component defines all the routes (views) inside the application.

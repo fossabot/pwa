@@ -1,9 +1,11 @@
 import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { RouteContext } from '@shopgate/pwa-common/context';
 import { Conditioner } from '@shopgate/pwa-core';
 import TaxDisclaimer from '@shopgate/pwa-ui-shared/TaxDisclaimer';
+import Board from 'Components/Board';
 import Reviews from 'Components/Reviews';
-import ImageSlider from '../ImageSlider';
+import ProductImageSlider from '../ProductImageSlider';
 import Header from '../Header';
 import Characteristics from '../Characteristics';
 import Options from '../Options';
@@ -12,6 +14,7 @@ import Properties from '../Properties';
 import AppBar from '../AppBar';
 import connect from './connector';
 import { ProductContext } from '../../context';
+import config from '../../../../config';
 
 /**
  * The product content component.
@@ -102,8 +105,12 @@ class ProductContent extends PureComponent {
       <Fragment>
         <AppBar productId={this.state.productId} />
         <ProductContext.Provider value={contextValue}>
-          <ImageSlider productId={this.state.productId} variantId={this.state.variantId} />
-          <Header />
+          <RouteContext.Consumer>
+            {({ pattern }) => {
+              const { children, grid } = config.content.pages[pattern];
+              return <Board tiles={grid} pieces={children} />;
+            }}
+          </RouteContext.Consumer>
           <Characteristics productId={this.state.productId} variantId={this.state.variantId} />
           <Options
             productId={id}
@@ -115,6 +122,9 @@ class ProductContent extends PureComponent {
           <Reviews productId={this.state.productId} />
           <TaxDisclaimer />
         </ProductContext.Provider>
+        {/*
+          <Header />
+        */}
       </Fragment>
     );
   }
