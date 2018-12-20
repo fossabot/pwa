@@ -12,11 +12,11 @@ import styles from './style';
  * @param {Object} props The component props.
  * @return {JSX}
  */
-const Name = ({ name }) => (
+const Name = ({ color, name }) => (
   <Fragment>
     <Portal name={PRODUCT_NAME_BEFORE} />
     <Portal name={PRODUCT_NAME}>
-      <div className={styles.name}>
+      <div className={styles.name} style={{ color }}>
         <PlaceholderLabel className={styles.placeholder} ready={(name !== null)}>
           <span data-test-id={`name: ${name}`}>
             {name}
@@ -29,10 +29,12 @@ const Name = ({ name }) => (
 );
 
 Name.propTypes = {
+  color: PropTypes.string,
   name: PropTypes.string,
 };
 
 Name.defaultProps = {
+  color: 'inherit',
   name: null,
 };
 

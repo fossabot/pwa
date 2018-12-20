@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import I18n from '@shopgate/pwa-common/components/I18n';
-import styles from './style';
 
 /**
  * The Shipping Label component.
@@ -9,7 +8,7 @@ import styles from './style';
  * @returns {JSX}
  */
 const Label = ({ className, price, currency }) => (
-  <div className={`${className} ${styles.text}`}>
+  <div className={className}>
     {price > 0 ? (
       <I18n.Text string="shipping.cost">
         <I18n.Price forKey="price" price={price} currency={currency} />

@@ -17,11 +17,15 @@ import styles from './style';
  * @param {Object} props The component props.
  * @return {JSX}
  */
-const Manufacturer = ({ manufacturer }) => (
+const Manufacturer = ({ color, manufacturer }) => (
   <Fragment>
     <Portal name={PRODUCT_MANUFACTURER_BEFORE} />
     <Portal name={PRODUCT_MANUFACTURER}>
-      <div className={styles.infoContainer} data-test-id={`manufacturer: ${manufacturer}`}>
+      <div
+        className={styles.infoContainer}
+        data-test-id={`manufacturer: ${manufacturer}`}
+        style={{ color }}
+      >
         <PlaceholderLabel className={styles.placeholder} ready={(manufacturer !== null)}>
           <BaseManufacturer text={(manufacturer || '')} />
         </PlaceholderLabel>
@@ -32,10 +36,12 @@ const Manufacturer = ({ manufacturer }) => (
 );
 
 Manufacturer.propTypes = {
+  color: PropTypes.string,
   manufacturer: PropTypes.string,
 };
 
 Manufacturer.defaultProps = {
+  color: 'var(--color-primary)',
   manufacturer: '',
 };
 

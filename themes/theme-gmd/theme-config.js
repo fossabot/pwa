@@ -73,8 +73,5 @@ module.exports = {
       borderRadius: 2,
       fontSize: '0.75rem',
     },
-    priceStrikedBase: {
-      color: colors.shade3,
-    },
   },
 };

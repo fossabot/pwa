@@ -5,8 +5,6 @@ import { Conditioner } from '@shopgate/pwa-core';
 import TaxDisclaimer from '@shopgate/pwa-ui-shared/TaxDisclaimer';
 import Board from 'Components/Board';
 import Reviews from 'Components/Reviews';
-import ProductImageSlider from '../ProductImageSlider';
-import Header from '../Header';
 import Characteristics from '../Characteristics';
 import Options from '../Options';
 import Description from '../Description';
@@ -122,9 +120,6 @@ class ProductContent extends PureComponent {
           <Reviews productId={this.state.productId} />
           <TaxDisclaimer />
         </ProductContext.Provider>
-        {/*
-          <Header />
-        */}
       </Fragment>
     );
   }

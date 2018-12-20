@@ -18,7 +18,6 @@ const Price = (props) => {
   const containerClasses = [
     styles.container,
     props.className,
-    ...props.discounted && [styles.discounted],
   ].join(' ');
 
   /**
@@ -58,7 +57,6 @@ Price.propTypes = {
   currency: PropTypes.string.isRequired,
   unitPrice: PropTypes.number.isRequired,
   className: PropTypes.string,
-  discounted: PropTypes.bool,
   fractions: PropTypes.bool,
   taxDisclaimer: PropTypes.bool,
   unitPriceMin: PropTypes.number,
@@ -67,7 +65,6 @@ Price.propTypes = {
 Price.defaultProps = {
   className: '',
   unitPriceMin: 0,
-  discounted: false,
   fractions: true,
   taxDisclaimer: false,
 };

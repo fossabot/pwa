@@ -17,33 +17,41 @@ import styles from './style';
  * @param {Object} props The component props.
  * @return {JSX}
  */
-const Price = ({ showTotalPrice, price }) => (
-  <Fragment>
-    <Portal name={PRODUCT_PRICE_BEFORE} />
-    <Portal name={PRODUCT_PRICE}>
-      <PlaceholderLabel ready={(price !== null)} className={styles.placeholder}>
-        {(price && price.unitPrice) && (
-          <PriceBase
-            className={styles.price}
-            currency={price.currency}
-            discounted={!!price.discount}
-            taxDisclaimer
-            unitPrice={!showTotalPrice ? price.unitPrice : price.totalPrice}
-            unitPriceMin={!showTotalPrice ? price.unitPriceMin : 0}
-          />
-        )}
-      </PlaceholderLabel>
-    </Portal>
-    <Portal name={PRODUCT_PRICE_AFTER} />
-  </Fragment>
-);
+const Price = ({ color, showTotalPrice, price }) => {
+  const textColor = (price && price.discount) ? color : 'inherit';
+
+  return (
+    <Fragment>
+      <Portal name={PRODUCT_PRICE_BEFORE} />
+      <Portal name={PRODUCT_PRICE}>
+        <PlaceholderLabel ready={(price !== null)} className={styles.placeholder}>
+          {(price && price.unitPrice) && (
+            <div style={{ color: textColor }}>
+              <PriceBase
+                className={styles.price}
+                currency={price.currency}
+                discounted={!!price.discount}
+                taxDisclaimer
+                unitPrice={!showTotalPrice ? price.unitPrice : price.totalPrice}
+                unitPriceMin={!showTotalPrice ? price.unitPriceMin : 0}
+              />
+            </div>
+          )}
+        </PlaceholderLabel>
+      </Portal>
+      <Portal name={PRODUCT_PRICE_AFTER} />
+    </Fragment>
+  );
+};
 
 Price.propTypes = {
+  color: PropTypes.string,
   price: PropTypes.shape(),
   showTotalPrice: PropTypes.bool,
 };
 
 Price.defaultProps = {
+  color: 'var(--color-primary)',
   price: null,
   showTotalPrice: false,
 };

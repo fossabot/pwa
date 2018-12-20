@@ -38,11 +38,24 @@ import Dialog from '@shopgate/pwa-ui-shared/Dialog';
 import locale from '../locale';
 import * as routes from './routes';
 
+import config from '../config';
+
+const { global } = config.styles;
+const root = document.documentElement;
+
+Object.keys(global).forEach((key) => {
+  const name = key.split(/(?=[A-Z])/).join('-').toLowerCase();
+  root.style.setProperty(`--${name}`, global[key]);
+});
+
 import ProductImageSlider from 'Pages/Product/components/ProductImageSlider';
 import ProductInfo from 'Pages/Product/components/ProductInfo';
 import ProductTitle from 'Pages/Product/components/ProductTitle';
 import ProductManufacturer from 'Pages/Product/components/ProductManufacturer';
 import ProductShipping from 'Pages/Product/components/ProductShipping';
+import ProductPrice from 'Pages/Product/components/ProductPrice';
+import ProductPriceOld from 'Pages/Product/components/ProductPriceOld';
+import ProductStock from 'Pages/Product/components/ProductStock';
 
 const devFontsUrl = 'https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700,900';
 
@@ -51,8 +64,9 @@ configurables.set('ProductInfo', ProductInfo);
 configurables.set('ProductTitle', ProductTitle);
 configurables.set('ProductManufacturer', ProductManufacturer);
 configurables.set('ProductShipping', ProductShipping);
-configurables.set('ProductPrice', () => <div>ProductPrice</div>);
-configurables.set('ProductMSRP', () => <div>ProductMSRP</div>);
+configurables.set('ProductPrice', ProductPrice);
+configurables.set('ProductMSRP', ProductPriceOld);
+configurables.set('ProductStock', ProductStock);
 
 /**
  * The theme's main component defines all the routes (views) inside the application.

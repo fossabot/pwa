@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './style';
 
 /**
  * The manufacturer component.
@@ -10,7 +9,7 @@ import styles from './style';
  * @return {JSX}
  */
 const Manufacturer = ({ className, text }) => (
-  <div className={`${styles} ${className}`}>
+  <div className={className}>
     {text}
   </div>
 );

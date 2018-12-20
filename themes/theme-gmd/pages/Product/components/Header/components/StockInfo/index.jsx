@@ -12,13 +12,14 @@ import styles from './style';
  * @param {Object} props The component props.
  * @return {JSX}
  */
-const StockInfo = ({ stock }) => (
+const StockInfo = ({ colors, stock }) => (
   <Fragment>
     <Portal name={portals.PRODUCT_STOCK_INFO_BEFORE} />
     <Portal name={portals.PRODUCT_STOCK_INFO}>
       <PlaceholderLabel className={styles.placeholder} ready={(stock !== null)}>
         {stock && (
           <AvailableText
+            colors={colors}
             className={styles.availability}
             showWhenAvailable={false}
             text={stock.text}
@@ -32,10 +33,12 @@ const StockInfo = ({ stock }) => (
 );
 
 StockInfo.propTypes = {
+  colors: PropTypes.shape(),
   stock: PropTypes.shape(),
 };
 
 StockInfo.defaultProps = {
+  colors: {},
   stock: null,
 };
 

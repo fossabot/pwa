@@ -2,7 +2,10 @@
 
 export default {
   'assets': {
-    'logo': '<svg ...></svg>'
+    'logo': '<svg ...></svg>',
+    'icons': {
+      'magnifier': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke- width="2" stroke - linecap="round" stroke - linejoin="round" class= "feather feather-search" > <circle cx="11" cy="11" r="8"></circle> <line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+    }
   },
   'content': {
     'globals': {},
@@ -34,6 +37,9 @@ export default {
             'children': [
               {
                 'name': 'ProductTitle',
+                'properties': {
+                  color: 'blue',
+                },
                 'dimensions': {
                   'top': 1,
                   'left': 1,
@@ -43,6 +49,9 @@ export default {
               },
               {
                 'name': 'ProductManufacturer',
+                'properties': {
+                  color: 'blue',
+                },
                 'dimensions': {
                   'top': 2,
                   'left': 1,
@@ -52,6 +61,9 @@ export default {
               },
               {
                 'name': 'ProductShipping',
+                'properties': {
+                  color: 'blue',
+                },
                 'dimensions': {
                   'top': 3,
                   'left': 1,
@@ -61,6 +73,9 @@ export default {
               },
               {
                 'name': 'ProductPrice',
+                'properties': {
+                  color: 'blue',
+                },
                 'dimensions': {
                   'top': 3,
                   'left': 2,
@@ -70,9 +85,28 @@ export default {
               },
               {
                 'name': 'ProductMSRP',
+                'properties': {
+                  color: 'blue',
+                },
                 'dimensions': {
                   'top': 2,
                   'left': 2,
+                  'width': 1,
+                  'height': 1
+                }
+              },
+              {
+                'name': 'ProductStock',
+                'properties': {
+                  colors: {
+                    ok: 'blue',
+                    warning: 'purple',
+                    error: 'pink',
+                  },
+                },
+                'dimensions': {
+                  'top': 4,
+                  'left': 1,
                   'width': 1,
                   'height': 1
                 }
@@ -82,8 +116,8 @@ export default {
               'columns': '1fr auto',
               'columnCount': 2,
               'columnGap': '0',
-              'rows': 'min-content min-content min-content',
-              'rowCount': 3,
+              'rows': 'min-content min-content min-content min-content',
+              'rowCount': 4,
               'rowGap': '0',
             },
             'dimensions': {
@@ -103,9 +137,9 @@ export default {
   },
   'styles': {
     'global': {
-      'fontFamily': 'Arial',
-      'colorPrimary': 'hsla( ... )',
-      'colorAccent': 'hsla( ... )'
+      'fontFamily': 'Roboto',
+      'colorPrimary': 'hsla(20, 100%, 49%)',
+      'colorAccent': 'hsla(189, 71%, 63%)'
     },
     'components': {
       'button': {},

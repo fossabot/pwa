@@ -1,18 +1,18 @@
 import React from 'react';
 import { ProductContext } from '../../context';
-import Manufacturer from '../Header/components/Manufacturer';
+import StockInfo from '../Header/components/StockInfo';
 
 /**
  * @returns {JSX}
  */
-function ProductManufacturer({ color }) {
+function ProductStockInfo({ colors }) {
   return (
     <ProductContext.Consumer>
       {({ productId, variantId }) => (
-        <Manufacturer color={color} productId={variantId || productId} />
+        <StockInfo colors={colors} productId={variantId || productId} />
       )}
     </ProductContext.Consumer>
   );
 }
 
-export default ProductManufacturer;
+export default ProductStockInfo;

@@ -5,9 +5,9 @@ import styles from './style';
 /**
  * @returns {JSX}
  */
-function ProductInfo({ children }) {
+function ProductInfo({ backgroundColor, children }) {
   return (
-    <div className={styles}>
+    <div className={styles} style={{ background: backgroundColor }}>
       {children}
     </div>
   );
@@ -15,6 +15,11 @@ function ProductInfo({ children }) {
 
 ProductInfo.propTypes = {
   children: PropTypes.node.isRequired,
+  backgroundColor: PropTypes.string,
+};
+
+ProductInfo.defaultProps = {
+  backgroundColor: '#fff',
 };
 
 export default ProductInfo;

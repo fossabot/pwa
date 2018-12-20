@@ -5,11 +5,11 @@ import Name from '../Header/components/Name';
 /**
  * @returns {JSX}
  */
-function ProductTitle() {
+function ProductTitle({ color }) {
   return (
     <ProductContext.Consumer>
       {({ productId, variantId }) => (
-        <Name productId={variantId || productId} />
+        <Name color={color} productId={variantId || productId} />
       )}
     </ProductContext.Consumer>
   );

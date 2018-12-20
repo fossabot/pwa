@@ -5,6 +5,7 @@ import {
   AVAILABILITY_STATE_WARNING,
   AVAILABILITY_STATE_ALERT,
 } from '@shopgate/pwa-common-commerce/product/constants';
+import { themeConfig } from '@shopgate/pwa-common/helpers/config';
 import styles from './style';
 
 /**
@@ -18,24 +19,16 @@ import styles from './style';
  * @return {JSX}
  */
 const Availability = ({
-  text, state, showWhenAvailable = false, className = null,
+  colors, text, state, showWhenAvailable = false, className = null,
 }) => {
   if (!text || (state === AVAILABILITY_STATE_OK && !showWhenAvailable)) {
     return null;
   }
 
-  let style = styles.stateOk;
-
-  if (state === AVAILABILITY_STATE_WARNING) {
-    style = styles.stateWarning;
-  }
-
-  if (state === AVAILABILITY_STATE_ALERT) {
-    style = styles.stateAlert;
-  }
+  const color = colors[state];
 
   return (
-    <div className={`${className} ${style}`} data-test-id={`availabilityText: ${text}`}>
+    <div style={{ color }} className={className} data-test-id={`availabilityText: ${text}`}>
       {text}
     </div>
   );
