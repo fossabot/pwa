@@ -1,0 +1,9 @@
+{
+  "name": "@shopgate/config-parser",
+  "version": "6.4.0",
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "lodash.get": "^4.4.2"
+  }
+}

@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Utils config-parser should not change arrays 1`] = `
+Object {
+  "someArray": Array [
+    Array [
+      6,
+      4,
+    ],
+  ],
+  "someNumber": 4,
+}
+`;
+
+exports[`Utils config-parser should not change numbers 1`] = `
+Object {
+  "someArray": Array [
+    5,
+  ],
+  "someNumber": 4,
+}
+`;
+
+exports[`Utils config-parser should replace a value within some array value 1`] = `
+Object {
+  "content": Array [
+    "bar",
+    "faz",
+  ],
+  "global": Object {
+    "baz": "faz",
+    "foo": "bar",
+  },
+}
+`;
+
+exports[`Utils config-parser should replace a value within some object property inside object 1`] = `
+Object {
+  "global": Object {
+    "baz": "faz",
+    "foo": "bar",
+  },
+  "someOther": Array [
+    Object {
+      "test": "1234",
+      "test2": "bar",
+    },
+  ],
+}
+`;
+
+exports[`Utils config-parser should return empty object if no config is set 1`] = `Object {}`;

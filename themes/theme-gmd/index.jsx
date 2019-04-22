@@ -13,11 +13,16 @@ import { configureStore } from '@shopgate/pwa-common/store';
 import { appWillStart } from '@shopgate/pwa-common/action-creators/app';
 import smoothscroll from 'smoothscroll-polyfill';
 import fetchClientInformation from '@shopgate/pwa-common/actions/client/fetchClientInformation';
+import JsonConfig from '@shopgate/config-parser';
+import config from './config';
 import Pages from './pages';
 import reducers from './pages/reducers';
 import subscribers from './pages/subscribers';
 
 smoothscroll.polyfill();
+
+const parsedConfig = new JsonConfig(config).parse();
+console.warn('parsedConfig', parsedConfig);
 
 const store = configureStore(reducers, subscribers);
 

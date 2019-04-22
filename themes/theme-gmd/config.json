@@ -1,0 +1,92 @@
+{
+  "settings": {
+    "language": "en-US",
+    "currency": "USD"
+  },
+  "assets": {
+    "logo": "<svg>...</svg>",
+    "icons": {
+      "back": "https://someurl.com/.../image.png"
+    }
+  },
+  "styles": {
+    "colors": {
+      "background": "#f8f8f8",
+      "light": "#fff",
+      "dark": "#000",
+      "placeholder": "#f2f2f2",
+      "primary": "#fa5400",
+      "primaryContrast": "#fff",
+      "accent": "#5ccee3",
+      "accentContrast": "#fff",
+      "cta": "#fa5400",
+      "ctaContrast": "#fff",
+      "success": "#35cc29",
+      "warning": "#ff9300",
+      "error": "#ff0000",
+      "darkGray": "#eaeaea",
+      "shade3": "#9a9a9a",
+      "shade4": "#b5b5b5",
+      "shade5": "#ccc",
+      "shade6": "#656565",
+      "shade7": "#eaeaea",
+      "shade8": "#f7f7f7",
+      "shade9": "#8d8d8d",
+      "shade10": "#f4f4f4",
+      "shade11": "#747474",
+      "shade12": "#939393"
+    },
+    "typography": {
+      "fontFamily": "Roboto, Arial, sans-serif",
+      "fontSizeBase": 16,
+      "lineHeightBase": 1.5
+    },
+    "shadows": {
+      "0": "none",
+      "1": "0px 1px 3px 0px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 2px 1px -1px rgba(0,0,0,0.12)",
+      "2": "0px 1px 5px 0px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 3px 1px -2px rgba(0,0,0,0.12)",
+      "3": "0px 1px 8px 0px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 3px 3px -2px rgba(0,0,0,0.12)"
+    },
+    "shapes": {
+      "radius": {
+        "0": 0,
+        "1": 4,
+        "2": 8,
+        "p0": "0%",
+        "p25": "25%",
+        "p50": "50%",
+        "p75": "100%"
+      },
+      "rectangle": 0,
+      "circle": "100%"
+    }
+  },
+  "pages": [
+    {
+      "pattern": "/item/:productId",
+      "name": "Product Detail Page",
+      "contentBlocks": [
+        {
+          "name": "ProductHeader",
+          "id": "@shopgate/engage/ProductHeader",
+          "settings": {
+            "showStrikePrice": true,
+            "showStockInformation": false,
+            "addToCartButtonPosition": "right-bottom"
+          },
+          "styles": {
+            "productName": {
+              "fontSize": 24
+            },
+            "addToCartButton": {
+              "background": "$.styles.colors.primary",
+              "color": "$.styles.colors.primaryContrast",
+              "borderRadius": "$.styles.shapes.circle",
+              "shadow": "$.styles.shadows.2"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

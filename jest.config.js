@@ -9,6 +9,7 @@ module.exports = {
     'extensions/*/frontend/**/*.js',
     'libraries/*/**/*.js',
     'themes/*/**/*.js',
+    'utils/config-parser/**/*.js',
     '!*/**/.eslintrc.js',
     '!*/**/jest.config.js',
     '!themes/*/extensions/**/*.js',
