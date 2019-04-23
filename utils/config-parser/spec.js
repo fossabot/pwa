@@ -1,7 +1,7 @@
-const JSONConfig = require('./index');
+const ConfigParser = require('./index');
 
 describe('Utils', () => {
-  describe('config-parser', () => {
+  describe('ConfigParser', () => {
     it('should replace a value within some object property inside object', () => {
       const config = {
         global: {
@@ -28,7 +28,7 @@ describe('Utils', () => {
         ],
       };
 
-      const result = new JSONConfig(config).parse();
+      const result = new ConfigParser(config).parse();
       expect(result).toMatchObject(expected);
       expect(result).toMatchSnapshot();
     });
@@ -55,7 +55,7 @@ describe('Utils', () => {
         ],
       };
 
-      const result = new JSONConfig(config).parse();
+      const result = new ConfigParser(config).parse();
       expect(result).toMatchObject(expected);
       expect(result).toMatchSnapshot();
     });
@@ -75,7 +75,7 @@ describe('Utils', () => {
         ],
       };
 
-      const result = new JSONConfig(config).parse();
+      const result = new ConfigParser(config).parse();
       expect(result).toMatchObject(expected);
       expect(result).toMatchSnapshot();
     });
@@ -101,13 +101,13 @@ describe('Utils', () => {
         ],
       };
 
-      const result = new JSONConfig(config).parse();
+      const result = new ConfigParser(config).parse();
       expect(result).toMatchObject(expected);
       expect(result).toMatchSnapshot();
     });
 
     it('should return empty object if no config is set', () => {
-      const result = new JSONConfig().parse();
+      const result = new ConfigParser().parse();
       expect(result).toMatchObject({});
       expect(result).toMatchSnapshot();
     });

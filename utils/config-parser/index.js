@@ -4,7 +4,7 @@ const get = require('lodash.get');
 /**
  * Parses a JSON object and replaces placeholders with values from the object.
  */
-class JSONConfig {
+class ConfigParser {
   /**
    * @param {Object} config The configuration to parse.
    * @param {string} [delimiter='$.'] What the replaceable starts with.
@@ -118,6 +118,6 @@ class JSONConfig {
   }
 }
 
-module.exports = JSONConfig;
+module.exports = ConfigParser;
 
 /* eslint-enable class-methods-use-this */

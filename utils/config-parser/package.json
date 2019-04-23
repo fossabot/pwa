@@ -1,8 +1,21 @@
 {
   "name": "@shopgate/config-parser",
   "version": "6.4.0",
+  "description": "Shopgate's theme config JSON parser.",
   "main": "index.js",
   "license": "Apache-2.0",
+  "repository": "shopgate/pwa",
+  "bugs": "https://github.com/shopgate/pwa/issues",
+  "homepage": "https://github.com/shopgate/pwa/tree/utils/config-parser",
+  "keywords": [
+    "engage",
+    "utils",
+    "json",
+    "config",
+    "connect-utils",
+    "shopgate",
+    "connect"
+  ],
   "dependencies": {
     "lodash.get": "^4.4.2"
   }
