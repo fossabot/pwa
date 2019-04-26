@@ -1,3 +1,4 @@
+import ConfigParser from '@shopgate/config-parser';
 import pck from './../../package';
 import { getThemeConfig } from './theme';
 
@@ -54,7 +55,11 @@ const defaultComponentsConfig = {
  * The app.json config from the theme.
  * @typedef {Object}
  */
-const appConfig = process.env.NODE_ENV !== 'test' ? process.env.APP_CONFIG : defaultAppConfig;
+const { theme, ...appConfig } = process.env.NODE_ENV !== 'test' ? process.env.APP_CONFIG : defaultAppConfig;
+const appConfigParsed = {
+  ...appConfig,
+  theme: new ConfigParser(theme).parse(),
+};
 
 /**
  * The components.json config from the theme.
@@ -69,7 +74,7 @@ export const componentsConfig = {
  * The theme configuration.
  * @typedef {Object}
  */
-export const themeConfig = getThemeConfig(appConfig);
+export const themeConfig = getThemeConfig(appConfigParsed);
 
 /**
  * The shop number.
@@ -78,4 +83,4 @@ export const themeConfig = getThemeConfig(appConfig);
 const { appId } = appConfig;
 export const shopNumber = appId ? appId.replace('shop_', '') : '';
 
-export default appConfig;
+export default appConfigParsed;

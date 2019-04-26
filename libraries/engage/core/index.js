@@ -146,6 +146,7 @@ export { default as YouTube } from '@shopgate/pwa-common/collections/media-provi
 // --------------- CONTEXTS --------------- //
 
 export * from '@shopgate/pwa-common/context';
+export { ConfigContext } from './config/ConfigContext';
 
 // --------------- PROVIDERS --------------- //
 
@@ -222,6 +223,7 @@ export { useRoute } from './hooks/useRoute';
 export { useTheme } from './hooks/useTheme';
 export { useCurrentProduct } from './hooks/useCurrentProduct';
 export { useNavigation } from './hooks/useNavigation';
+export { useBlockConfig } from './hooks/useBlockConfig';
 
 // --------------- HOCs --------------- //
 

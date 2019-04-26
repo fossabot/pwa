@@ -15,6 +15,7 @@
     "connect"
   ],
   "dependencies": {
+    "@shopgate/config-parser": "6.4.1",
     "@shopgate/pwa-common": "6.4.1",
     "@shopgate/pwa-common-commerce": "6.4.1",
     "@shopgate/pwa-core": "6.4.1",
@@ -24,8 +25,12 @@
     "@virtuous/conductor": "^2.3.0"
   },
   "devDependencies": {
+    "enzyme": "^3.9.0",
+    "glamor": "^2.20.40",
     "prop-types": "^15.6.0",
     "react": "~16.8.4",
-    "redux": "^4.0.1"
+    "react-redux": "^5.0.6",
+    "redux": "^4.0.1",
+    "jest": "^23.6.0"
   }
 }

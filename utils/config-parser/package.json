@@ -1,6 +1,6 @@
 {
   "name": "@shopgate/config-parser",
-  "version": "6.4.0",
+  "version": "6.4.1",
   "description": "Shopgate's theme config JSON parser.",
   "main": "index.js",
   "license": "Apache-2.0",
