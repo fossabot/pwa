@@ -5,8 +5,8 @@ import debounce from 'lodash/debounce';
 import TextField from '@shopgate/pwa-ui-shared/Form/TextField';
 import InfoIcon from '@shopgate/pwa-ui-shared/icons/InfoIcon';
 import withShowModal from '@shopgate/pwa-common/helpers/modal/withShowModal';
+import { ProductContext } from '@shopgate/engage/product';
 import transition from './../../../Characteristics/Characteristic/transition';
-import { ProductContext } from '../../../../context';
 import OptionInformation from './components/OptionInfo';
 import styles from './style';
 

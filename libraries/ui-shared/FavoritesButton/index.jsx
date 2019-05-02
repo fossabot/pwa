@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import cxs from 'classnames';
 import appConfig from '@shopgate/pwa-common/helpers/config';
 import HeartIcon from '../icons/HeartIcon';
 import HeartOutlineIcon from '../icons/HeartOutlineIcon';
@@ -14,7 +15,10 @@ class FavoritesButton extends Component {
   static propTypes = {
     active: PropTypes.bool,
     addFavorites: PropTypes.func,
-    className: PropTypes.string,
+    className: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape(),
+    ]),
     noShadow: PropTypes.bool,
     // When true, button would react on click only once.
     once: PropTypes.bool,
@@ -23,7 +27,11 @@ class FavoritesButton extends Component {
     removeFavorites: PropTypes.func,
     removeThrottle: PropTypes.number,
     removeWithRelatives: PropTypes.bool,
-    rippleClassName: PropTypes.string,
+    rippleClassName: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape(),
+    ]),
+    style: PropTypes.shape(),
   };
 
   /**
@@ -36,16 +44,17 @@ class FavoritesButton extends Component {
 
   static defaultProps = {
     active: false,
-    addFavorites: () => {},
+    addFavorites: () => { },
     className: '',
     noShadow: false,
     once: false,
-    onRippleComplete: () => {},
+    onRippleComplete: () => { },
     productId: null,
-    removeFavorites: () => {},
+    removeFavorites: () => { },
     removeThrottle: 0,
     removeWithRelatives: false,
     rippleClassName: '',
+    style: null,
   };
 
   /**
@@ -143,6 +152,7 @@ class FavoritesButton extends Component {
       <button
         aria-label={this.getLabel()}
         className={`${className} ${this.props.className}`}
+        style={this.props.style}
         onClick={this.handleClick}
         data-test-id="favoriteButton"
       >

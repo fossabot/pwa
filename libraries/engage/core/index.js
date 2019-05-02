@@ -147,6 +147,7 @@ export { default as YouTube } from '@shopgate/pwa-common/collections/media-provi
 
 export * from '@shopgate/pwa-common/context';
 export { ConfigContext } from './config/ConfigContext';
+export { StoreContext } from './store';
 
 // --------------- PROVIDERS --------------- //
 
@@ -219,11 +220,14 @@ export * from '@shopgate/pwa-common/selectors/modal';
 
 // --------------- HOOKS --------------- //
 
+export { useCurrentProduct } from './hooks/useCurrentProduct';
+export { useAppConfig } from './hooks/useAppConfig';
+export { useNavigation } from './hooks/useNavigation';
 export { useRoute } from './hooks/useRoute';
 export { useTheme } from './hooks/useTheme';
-export { useCurrentProduct } from './hooks/useCurrentProduct';
-export { useNavigation } from './hooks/useNavigation';
-export { useBlockConfig } from './hooks/useBlockConfig';
+export { useWidgetConfig } from './hooks/useWidgetConfig';
+export { useWidgetStyles } from './hooks/useWidgetStyles';
+export { useWidgetSettings } from './hooks/useWidgetSettings';
 
 // --------------- HOCs --------------- //
 

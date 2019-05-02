@@ -6,6 +6,7 @@ import { generateResultHash } from '@shopgate/pwa-common/helpers/redux';
 import { DEFAULT_SORT } from '@shopgate/pwa-common/constants/DisplayOptions';
 import { getSortOrder } from '@shopgate/pwa-common/selectors/history';
 import { getActiveFilters } from '../../filter/selectors';
+import { AVAILABILITY_STATE_OK } from '../constants';
 import { filterProperties } from '../helpers';
 
 /**
@@ -267,6 +268,26 @@ export const getProductAvailability = createSelector(
     }
 
     return product.availability;
+  }
+);
+
+/**
+ * Retrieves the product availability.
+ * @param {Object} state The current application state.
+ * @param {Object} props The component props.
+ * @return {Object|null}
+ */
+export const getRealProductAvailability = createSelector(
+  getProductStock,
+  (stock) => {
+    if (!stock) {
+      return null;
+    }
+
+    return {
+      text: stock.info,
+      state: AVAILABILITY_STATE_OK,
+    };
   }
 );
 

@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { ProductContext } from '@shopgate/engage/product';
 import Option from '../Option';
 import TextOption from '../TextOption';
-import { ProductContext } from '../../../../context';
 import connect from './connector';
 
 /**

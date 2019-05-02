@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { ThemeContext } from '@shopgate/pwa-common/context';
 import List from 'Components/List';
 import VariantContext from '@shopgate/pwa-common/components/ProductCharacteristics/context';
+import { ProductContext } from '@shopgate/engage/product';
 import Item from '../SheetItem';
 import VariantAvailability from '../VariantAvailability';
-import { ProductContext } from './../../../../../context';
 
 /**
  * The CharacteristicSheet component.
@@ -26,8 +26,8 @@ class CharacteristicSheet extends PureComponent {
   };
 
   static defaultProps = {
-    onClose() {},
-    onSelect() {},
+    onClose() { },
+    onSelect() { },
     productId: null,
     selectedValue: null,
     selection: null,

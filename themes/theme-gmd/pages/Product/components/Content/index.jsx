@@ -1,17 +1,17 @@
 import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Conditioner } from '@shopgate/pwa-core';
+import { ProductHeader, ProductContext } from '@shopgate/engage/product';
 import TaxDisclaimer from '@shopgate/pwa-ui-shared/TaxDisclaimer';
 import Reviews from 'Components/Reviews';
 import ImageSlider from '../ImageSlider';
-import Header from '../Header';
+// import Header from '../Header';
 import Characteristics from '../Characteristics';
 import Options from '../Options';
 import Description from '../Description';
 import Properties from '../Properties';
 import AppBar from '../AppBar';
 import connect from './connector';
-import { ProductContext } from '../../context';
 
 /**
  * The product content component.
@@ -114,7 +114,7 @@ class ProductContent extends PureComponent {
           <AppBar productId={this.state.productId} />
           <ProductContext.Provider value={contextValue}>
             <ImageSlider productId={this.state.productId} variantId={this.state.variantId} />
-            <Header />
+            <ProductHeader />
             <Characteristics productId={this.state.productId} variantId={this.state.variantId} />
             <Options />
             <Description productId={this.state.productId} variantId={this.state.variantId} />

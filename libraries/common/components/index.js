@@ -5,3 +5,6 @@ export { default as Route } from './Route';
 export { default as Portal } from './Portal';
 export { default as Slider } from './Slider';
 export { default as Swiper } from './Swiper';
+export { default as Grid } from './Grid';
+export { default as I18n } from './I18n';
+export { default as SurroundPortals } from './SurroundPortals';

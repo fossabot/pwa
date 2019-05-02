@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cxs from 'classnames';
 import styles from './style';
 
 /**
@@ -12,7 +13,7 @@ const PlaceholderLabel = ({
 }) => {
   if (!ready) {
     return (
-      <div style={style} className={`${styles.label} ${className}`} />
+      <div style={style} className={cxs(styles.label, className)} />
     );
   }
 

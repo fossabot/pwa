@@ -26,14 +26,14 @@ export function getThemeConfig(appConfig) {
 
   return {
     ...theme,
-    font: theme.styles.typography,
+    font: theme.typography,
     colors: {
-      ...theme.styles.colors,
+      ...theme.colors,
       ...colors,
     },
     variables: {
       ...(oldTheme.variables || {}),
-      materialShadow: theme.styles.shadows.baseShadow,
+      materialShadow: theme.shadows.baseShadow,
     },
   };
 }

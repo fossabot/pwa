@@ -1,7 +1,7 @@
 import React from 'react';
 import { PRODUCT_OPTIONS } from '@shopgate/pwa-common-commerce/product/constants/Portals';
 import SurroundPortals from '@shopgate/pwa-common/components/SurroundPortals';
-import { ProductContext } from '../../context';
+import { ProductContext } from '@shopgate/engage/product';
 import Content from './components/Content';
 import Option from './components/Option';
 import PriceDifference from './components/PriceDifference';

@@ -1,72 +1,42 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useTheme } from '@shopgate/engage/core';
 import { FloatingActionButton } from '@shopgate/pwa-ui-material';
 import IndicatorCircle from '@shopgate/pwa-ui-shared/IndicatorCircle';
-import { themeConfig } from '@shopgate/pwa-common/helpers/config';
 import Icon from './components/Icon';
 import connect from './connector';
 import inject from './injector';
 import styles from './style';
 
-const { colors } = themeConfig;
-
 /**
  * The CartButton component.
+ * @param {Object} props The component props.
+ * @returns {JSX}
  */
-class CartButton extends Component {
-  static propTypes = {
-    addToCart: PropTypes.func.isRequired,
-    conditioner: PropTypes.shape().isRequired,
-    disabled: PropTypes.bool.isRequired,
-    loading: PropTypes.bool.isRequired,
-    options: PropTypes.shape().isRequired,
-    productId: PropTypes.string.isRequired,
-  }
-
-  state = {
-    clicked: false,
-  };
-
-  /**
-   * Only update when the clicked state has changed.
-   * @param {Object} nextProps The next component props.
-   * @param {Object} nextState The next component state.
-   * @returns {boolean}
-   */
-  shouldComponentUpdate(nextProps, nextState) {
-    return (
-      this.state.clicked !== nextState.clicked ||
-      this.props.disabled !== nextProps.disabled ||
-      this.props.loading !== nextProps.loading
-    );
-  }
+function CartButton(props) {
+  const [clicked, setClicked] = useState(false);
+  const { colors } = useTheme();
+  const {
+    addToCart,
+    conditioner,
+    disabled,
+    loading,
+    options,
+    productId,
+    background = colors.primary,
+    backgroundClicked = colors.light,
+    backgroundDisabled = colors.shade5,
+  } = props;
 
   /**
-   * Returns the color for the button.
+   * @returns {string}
    */
-  get color() {
-    if (this.state.clicked) {
-      return colors.light;
+  function getColor() {
+    if (clicked) {
+      return backgroundClicked;
     }
 
-    return (this.props.disabled && !this.props.loading) ? colors.shade5 : colors.primary;
-  }
-
-  /**
-   * Returns a loading icon or the cart icon.
-   */
-  get icon() {
-    if (this.props.loading) {
-      return (
-        <IndicatorCircle
-          color={colors.primaryContrast}
-          strokeWidth={4}
-          paused={false}
-        />
-      );
-    }
-
-    return <Icon success={this.state.clicked} onSuccess={this.resetClicked} />;
+    return (disabled && !loading) ? backgroundDisabled : background;
   }
 
   /**
@@ -74,25 +44,20 @@ class CartButton extends Component {
    * Checks if the button can be clicked and if
    * all criteria set by the conditioner are met.
    */
-  handleClick = () => {
-    if (this.state.clicked) {
+  function handleClick() {
+    if (clicked || disabled) {
       return;
     }
 
-    if (this.props.disabled) {
-      return;
-    }
-
-    this.props.conditioner.check().then((fulfilled) => {
+    conditioner.check().then((fulfilled) => {
       if (!fulfilled) {
         return;
       }
 
-      this.setState({ clicked: true });
-
-      this.props.addToCart({
-        productId: this.props.productId,
-        options: this.props.options,
+      setClicked(true);
+      addToCart({
+        productId,
+        options,
         quantity: 1,
       });
     });
@@ -101,25 +66,32 @@ class CartButton extends Component {
   /**
    * Reset the state to make the button clickable again.
    */
-  resetClicked = () => {
-    this.setState({ clicked: false });
+  function resetClicked() {
+    setClicked(false);
   }
 
-  /**
-   * @returns {JSX}
-   */
-  render() {
-    return (
-      <FloatingActionButton
-        background={this.color}
-        className={styles}
-        onClick={this.handleClick}
-        testId="addToCartButton"
-      >
-        {this.icon}
-      </FloatingActionButton>
-    );
-  }
+  return (
+    <FloatingActionButton
+      background={getColor()}
+      className={styles}
+      onClick={handleClick}
+      testId="addToCartButton"
+    >
+      {loading
+        ? <IndicatorCircle color={colors.primaryContrast} strokeWidth={4} paused={false} />
+        : <Icon success={clicked} onSuccess={resetClicked} />
+      }
+    </FloatingActionButton>
+  );
 }
+
+CartButton.propTypes = {
+  addToCart: PropTypes.func.isRequired,
+  conditioner: PropTypes.shape().isRequired,
+  disabled: PropTypes.bool.isRequired,
+  loading: PropTypes.bool.isRequired,
+  options: PropTypes.shape().isRequired,
+  productId: PropTypes.string.isRequired,
+};
 
 export default inject(connect(CartButton));

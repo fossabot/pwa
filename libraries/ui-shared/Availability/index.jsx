@@ -18,24 +18,28 @@ import styles from './style';
  * @return {JSX}
  */
 const Availability = ({
-  text, state, showWhenAvailable = false, className = null,
+  text, state, showWhenAvailable = false, className = null, style,
 }) => {
   if (!text || (state === AVAILABILITY_STATE_OK && !showWhenAvailable)) {
     return null;
   }
 
-  let style = styles.stateOk;
+  let stateStyle = styles.stateOk;
 
   if (state === AVAILABILITY_STATE_WARNING) {
-    style = styles.stateWarning;
+    stateStyle = styles.stateWarning;
   }
 
   if (state === AVAILABILITY_STATE_ALERT) {
-    style = styles.stateAlert;
+    stateStyle = styles.stateAlert;
   }
 
   return (
-    <div className={`${className} ${style}`} data-test-id={`availabilityText: ${text}`}>
+    <div
+      className={`${className} ${stateStyle}`}
+      style={style}
+      data-test-id={`availabilityText: ${text}`}
+    >
       {text}
     </div>
   );
@@ -46,12 +50,14 @@ Availability.propTypes = {
   className: PropTypes.string,
   showWhenAvailable: PropTypes.bool,
   state: PropTypes.string,
+  style: PropTypes.shape(),
 };
 
 Availability.defaultProps = {
   className: '',
   showWhenAvailable: false,
   state: AVAILABILITY_STATE_OK,
+  style: null,
 };
 
 export default Availability;

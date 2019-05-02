@@ -7,7 +7,7 @@ import {
   PRODUCT_VARIANT_SELECT_BEFORE,
 } from '@shopgate/pwa-common-commerce/product/constants/Portals';
 import ProductCharacteristics from '@shopgate/pwa-common/components/ProductCharacteristics';
-import { ProductContext } from './../../context';
+import { ProductContext } from '@shopgate/engage/product';
 import Characteristic from './Characteristic';
 
 /**

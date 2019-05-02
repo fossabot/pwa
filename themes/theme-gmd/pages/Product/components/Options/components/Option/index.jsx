@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import I18n from '@shopgate/pwa-common/components/I18n';
 import Picker from 'Components/Picker';
-import { ProductContext } from '../../../../context';
+import { ProductContext } from '@shopgate/engage/product';
 import PriceDifference from '../PriceDifference';
 import styles from './style';
 

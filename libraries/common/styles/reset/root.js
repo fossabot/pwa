@@ -1,7 +1,7 @@
 import { css } from 'glamor';
 import { themeConfig } from '../../helpers/config';
 
-const { styles: { typography } } = themeConfig;
+const { typography } = themeConfig;
 
 css.global('*, *:before, *:after', {
   boxSizing: 'border-box',

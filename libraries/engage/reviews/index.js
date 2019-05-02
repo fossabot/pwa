@@ -18,4 +18,6 @@ export * from '@shopgate/pwa-common-commerce/reviews/selectors';
 export * from '@shopgate/pwa-common-commerce/reviews/streams';
 
 // MOCKS
-export * from '@shopgate/pwa-common-commerce/reviews/mock';
+// export * from '@shopgate/pwa-common-commerce/reviews/mock';
+
+export { RatingCount } from './components/RatingCount';

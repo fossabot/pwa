@@ -60,29 +60,82 @@
     "rectangle": 0,
     "circle": "100%"
   },
+  "spacing": {
+    "1": 4,
+    "2": 8,
+    "3": 12,
+    "4": 16,
+    "5": 20,
+    "6": 24,
+    "7": 28,
+    "8": 32,
+    "9": 36,
+    "10": 40
+  },
   "pages": [
     {
       "pattern": "/item/:productId",
       "name": "Product Detail Page",
-      "contentBlocks": [
+      "widgets": [
         {
           "name": "ProductHeader",
           "id": "@shopgate/engage/ProductHeader",
           "settings": {
-            "showStrikePrice": true,
-            "showStockInformation": false,
-            "addToCartButtonPosition": "right-bottom"
+            "showRating": true,
+            "showManufacturer": true,
+            "showShipping": true,
+            "showAvailability": true,
+            "showStockInfo": true
           },
           "styles": {
-            "productName": {
+            "widget": {
+              "background": "$.colors.light",
+              "padding": "$.spacing.4"
+            },
+            "name": {
               "fontSize": 20,
               "textAlign": "left"
             },
-            "addToCartButton": {
-              "background": "$.colors.primary",
-              "color": "$.colors.primaryContrast",
-              "borderRadius": "$.shapes.circle",
-              "shadow": "$.shadows.2"
+            "rating": {
+              "marginBottom": "$.spacing.2",
+              "lineHeight": "0.75rem"
+            },
+            "info": {
+              "marginTop": "$.spacing.1"
+            },
+            "shipping": {
+              "color": "$.colors.success",
+              "fontSize": "0.875rem"
+            },
+            "availability": {
+              "fontSize": "0.875rem"
+            },
+            "stockInfo": {
+              "fontSize": "0.875rem"
+            },
+            "prices": {
+              "textAlign": "right",
+              "marginLeft": "$.spacing.4"
+            },
+            "priceStriked": {
+              "msrp": {
+                "color": "$.colors.shade3",
+                "fontSize": "0.875rem",
+                "marginRight": "$.spaces.1"
+              },
+              "msrpStriked": {
+                "fontSize": "0.875rem"
+              }
+            },
+            "ctas": {
+              "container": {
+                "right": "$.spaces.4",
+                "top": "-30px"
+              },
+              "favoriteBtn": {
+                "marginRight": "$.spaces.4",
+                "fontSize": 24
+              }
             }
           }
         }

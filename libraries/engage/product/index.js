@@ -37,3 +37,9 @@ export * from '@shopgate/pwa-common-commerce/product/selectors/variants';
 
 // STREAMS
 export * from '@shopgate/pwa-common-commerce/product/streams';
+
+export { ProductContext } from './context/ProductContext';
+export { ProductHeader } from './components/ProductHeader';
+
+// HOOKS
+export { useProduct } from './hooks/useProduct';

@@ -12,6 +12,8 @@ class GridItem extends Component {
     component: PropTypes.string,
     grow: PropTypes.number,
     shrink: PropTypes.number,
+    // eslint-disable-next-line react/no-unused-prop-types
+    style: PropTypes.shape(),
   };
 
   static defaultProps = {
@@ -19,6 +21,7 @@ class GridItem extends Component {
     component: 'li',
     grow: 0,
     shrink: 1,
+    style: null,
   };
 
   /**
