@@ -17,10 +17,10 @@ import {
   ORDERS_PATH,
 } from '@shopgate/pwa-common/constants/RoutePaths';
 import { LEGACY_URL as ORDERS_LEGACY_PATH } from '@shopgate/pwa-common-commerce/orders/constants';
-import { ITEM_PATH } from '@shopgate/pwa-common-commerce/product/constants';
+import { isBeta, isAfter, getSettings } from '@shopgate/engage/core';
+import { ITEM_PATH, ITEM_PATTERN, makeGetProductEffectivityDates, productImageFormats } from '@shopgate/engage/product';
 import { SCANNER_PATH } from '@shopgate/pwa-common-commerce/scanner/constants';
 import grantCameraPermissions from '@shopgate/pwa-common-commerce/scanner/actions/grantCameraPermissions';
-import { productImageFormats } from '@shopgate/pwa-common-commerce/product/collections';
 import { NavDrawer } from '@shopgate/pwa-ui-material';
 import {
   PRODUCT_SLIDER_IMAGE_COLLECTION_KEY,
@@ -30,6 +30,7 @@ import {
   GALLERY_SLIDER_IMAGE_COLLECTION_KEY,
   GALLERY_SLIDER_IMAGE_FORMATS,
 } from './ProductGallery/constants';
+
 /**
  * App subscriptions.
  * @param {Function} subscribe The subscribe function.
@@ -74,5 +75,32 @@ export default function app(subscribe) {
       code: ETIMEOUT, // Should also be done for EUNKNOWN and EINTERNAL in the future.
       message: 'modal.body_error',
     });
+
+    /**
+     * This feature is currently in BETA testing.
+     * It should only be used for approved BETA Client Projects
+     */
+    if (isBeta()) {
+      /** Effectivity dates */
+      const { accessExpired = true } = getSettings('@shopgate/engage/product/EffectivityDates') || {};
+      if (!accessExpired) {
+        const getProductEffectivityDates = makeGetProductEffectivityDates();
+
+        redirects.set(ITEM_PATTERN, ({ action }) => {
+          const { params: { pathname }, route: { state: { productId } } } = action;
+
+          const effectivityDates = getProductEffectivityDates(getState(), { productId });
+          if (effectivityDates) {
+            // Check if allowed by effectivity dates
+            if (effectivityDates.endDate
+              && isAfter(Date.now(), new Date(effectivityDates.endDate))) {
+              // Stop navigation
+              return null;
+            }
+          }
+          return pathname;
+        });
+      }
+    }
   });
 }

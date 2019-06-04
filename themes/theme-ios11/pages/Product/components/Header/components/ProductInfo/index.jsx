@@ -52,7 +52,7 @@ const ProductInfo = ({ productId, options }) => (
             <div className={styles.productInfo}>
               {/* This feature is currently in BETA testing.
                 It should only be used for approved BETA Client Projects */}
-              <EffectivityDates productId={productId}>
+              <EffectivityDates productId={productId} navigateOnExpire >
                 <Availability productId={productId} />
               </EffectivityDates>
             </div>

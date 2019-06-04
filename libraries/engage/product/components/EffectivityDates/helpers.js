@@ -1,5 +1,9 @@
 import { isBefore, isAfter } from '@shopgate/engage/core';
 
+const ALWAYS = 'always';
+const DAYS_BEFORE = 'daysBefore';
+const NEVER = 'always';
+
 /**
  * Decide if startDate hint should be shown
  * @param {Object} settings settings
@@ -12,24 +16,24 @@ export const showStartDateHint = (settings, startDate) => {
   }
 
   const {
-    showStartDate: {
-      strategy = 'always', // 'always|daysBefore|never',
+    startDate: {
+      showProducts = ALWAYS, // 'always|daysBefore|never',
       daysBefore = 0,
     } = {},
   } = settings || {};
 
-  switch (strategy) {
-    case 'always':
+  switch (showProducts) {
+    case ALWAYS:
       return isBefore(Date.now(), startDate);
 
-    case 'daysBefore': {
+    case DAYS_BEFORE: {
       const now = Date.now();
       return isBefore(now, startDate)
       && isAfter(startDate, now.setDate(now.getDate() - daysBefore));
     }
 
     default:
-    case 'never':
+    case NEVER:
       return false;
   }
 };
@@ -46,22 +50,22 @@ export const showEndDateHint = (settings, endDate) => {
   }
 
   const {
-    showEndDate: {
-      strategy = 'always', // 'always|daysBefore|never',
+    endDate: {
+      showProducts = ALWAYS, // 'always|daysBefore|never',
       daysBefore = 0,
     } = {},
   } = settings || {};
 
-  switch (strategy) {
-    case 'always':
+  switch (showProducts) {
+    case ALWAYS:
       return true;
 
-    case 'daysBefore': {
+    case DAYS_BEFORE: {
       return isAfter(Date.now(), endDate.setDate(endDate.getDate() - daysBefore));
     }
 
     default:
-    case 'never':
+    case NEVER:
       return false;
   }
 };
